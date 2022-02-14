@@ -51,14 +51,14 @@ const id = prompt('Enter your id');
 const pw = prompt('Enter your password');
 
 userStorage.loginUser(
-  id, 
-  pw, 
+  id,
+  pw,
   user => {
     userStorage.getRoles(
-      userWithRole,
-      alert(
-        `name: ${userWithRole.name}, role: ${userWithRole.role}`
-      ),
+      user,
+      userWithRoles => {
+        alert(`Hello! ${userWithRoles.name}, you have a ${userWithRoles.role} role`);
+      },
       error => {
         console.log(error);
       }
